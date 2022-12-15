@@ -1,0 +1,14 @@
+.table__main {
+    padding: 20px 20px;
+}
+
+.table__container {
+    /* padding: px; */
+    /* transform: translateY(-100px); */
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.table__table {
+    height: 631px;
+}
