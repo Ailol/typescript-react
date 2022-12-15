@@ -1,6 +1,8 @@
 ## Simpel form og Api
 
-Brukt tech:
+Could of added bus reducers and store, however due to timeconstraints optet to only use a state.
+
+Tech:
 
 -   Material UI
 -   Graphql(koblet med enturs sitt API)

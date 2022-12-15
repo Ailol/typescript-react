@@ -1,5 +1,4 @@
 import { User } from "../reducers/userReducer";
-import { bus } from "../reducers/busReducer";
 
 import moment from "moment";
 
@@ -46,5 +45,6 @@ export const filterBusses = (busses: any) => {
         });
         id++;
     });
+
     return filteredBusses;
 };
