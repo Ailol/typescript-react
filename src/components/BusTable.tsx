@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { getBusses } from "../services/api";
 import { filterBusses } from "../utils/helpers";
 import "../assets/Table.css";
-import { columns } from "./constants";
+import { columns } from "../types/constants";
 
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "./Header";
+
 const BusTable: React.FC = (props) => {
     const [busses, setBusses] = useState<any[]>([]);
 
