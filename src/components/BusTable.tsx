@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getBusses } from "../services/api";
-import { filterBusses } from "../utils/helpers";
+import { filterBusses } from "../utils/utils";
 import "../assets/Table.css";
 import { columns } from "../types/constants";
 

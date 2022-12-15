@@ -15,7 +15,7 @@ import "../assets/Form.css";
 
 import { addUser, User, resetStore } from "../reducers/userReducer";
 import { buttonLabels, formLabels, inputType } from "../types/types";
-import { isValidForm } from "../utils/helpers";
+import { isValidForm } from "../utils/utils";
 import { useDispatch } from "react-redux";
 import Header from "./Header";
 
