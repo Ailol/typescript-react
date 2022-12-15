@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+## Simpel form og Api
 
 Brukt tech: - Material UI - Graphql(koblet med enturs sitt API) - Redux
 
