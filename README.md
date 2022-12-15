@@ -1,6 +1,10 @@
 ## Simpel form og Api
 
-Brukt tech: - Material UI - Graphql(koblet med enturs sitt API) - Redux
+Brukt tech:
+
+-   Material UI
+-   Graphql(koblet med enturs sitt API)
+-   Redux
 
 ## Available Scripts
 
