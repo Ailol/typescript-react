@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store/store";
 
-export interface bus {
+export interface Bus {
     id: number;
     code: string;
     journey: string;
@@ -13,19 +13,19 @@ export interface bus {
     diff: string;
 }
 
-type busState = {
-    busList: bus[];
+type BusState = {
+    busList: Bus[];
 };
 
-const initialState = {
+const initialState: BusState = {
     busList: [],
-} as busState;
+};
 
 const busSlice = createSlice({
-    name: "buss",
+    name: "bus",
     initialState,
     reducers: {
-        addbus(state, action: PayloadAction<bus>) {
+        addBus(state, action: PayloadAction<Bus>) {
             state.busList.push(action.payload);
         },
         resetStore(state) {
@@ -34,7 +34,7 @@ const busSlice = createSlice({
     },
 });
 
-export const { addbus, resetStore } = busSlice.actions;
+export const { addBus, resetStore } = busSlice.actions;
 export default busSlice.reducer;
 
-export const selectbuss = (state: RootState) => state.bus.busList;
+export const selectBus = (state: RootState) => state.bus.busList;

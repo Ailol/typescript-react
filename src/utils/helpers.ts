@@ -1,7 +1,9 @@
 import { User } from "../reducers/userReducer";
-import { bus } from "../reducers/busReducer";
+import { Bus } from "../reducers/busReducer";
 
 import moment from "moment";
+import { addBus } from "../reducers/busReducer";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const isValidForm = (form: User) => {
     return (
@@ -24,27 +26,21 @@ export const timeDiff = (data: any) => {
         .format("HH:mm");
 };
 
-export const filterBusses = (busses: any) => {
-    let id = 0;
-    const filteredBusses: any[] = [];
+export const formatToUtc = (time: any) => {
+    return moment(time).utcOffset(time).format("HH:mm");
+};
 
-    busses?.map((b: any) => {
-        filteredBusses.push({
-            id: id,
-            code: b?.serviceJourney?.journeyPattern?.line?.publicCode,
-            journey: b?.serviceJourney?.journeyPattern?.line?.name,
-            name: b?.quay?.name,
-            dest: b?.destinationDisplay?.frontText,
-            plat: b?.quay?.publicCode,
-            aimed: moment(b?.aimedArrivalTime)
-                .utcOffset(b?.aimedArrivalTime)
-                .format("HH:mm"),
-            expected: moment(b?.expectedArrivalTime)
-                .utcOffset(b?.expectedArrivalTime)
-                .format("HH:mm"),
-            diff: timeDiff(b),
-        });
-        id++;
-    });
-    return filteredBusses;
+// should be an action
+export const filterBus = (id: any, b: any) => {
+    return {
+        id: id,
+        code: b?.serviceJourney?.journeyPattern?.line?.publicCode,
+        journey: b?.serviceJourney?.journeyPattern?.line?.name,
+        name: b?.quay?.name,
+        dest: b?.destinationDisplay?.frontText,
+        plat: b?.quay?.publicCode,
+        aimed: formatToUtc(b?.aimedArrivalTime),
+        expected: formatToUtc(b?.expectedArrivalTime),
+        diff: timeDiff(b),
+    };
 };

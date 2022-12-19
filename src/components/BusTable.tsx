@@ -1,23 +1,36 @@
 import { useState, useEffect } from "react";
 import { getBusses } from "../services/api";
-import { filterBusses } from "../utils/helpers";
+import { filterBus } from "../utils/helpers";
 import "../assets/Table.css";
 import { columns } from "../types/constants";
 
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "./Header";
 
-const BusTable: React.FC = (props) => {
-    const [busses, setBusses] = useState<any[]>([]);
+import { useSelector, TypedUseSelectorHook } from "react-redux";
+import { addBus, selectBus } from "../reducers/busReducer";
 
-    const fetchData = async () => {
+import { RootState } from "../store/store";
+import { useDispatch } from "react-redux";
+
+const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+const BusTable: React.FC = (props) => {
+    const dispatch = useDispatch();
+    const b = useSelector(selectBus);
+
+    const updateStore = async () => {
         return await getBusses().then((response) => {
-            setBusses(filterBusses(response.data?.stopPlace?.estimatedCalls));
+            const busses = response.data?.stopPlace?.estimatedCalls;
+            let id = 0;
+            busses?.map((b: any) => {
+                dispatch(addBus(filterBus(id, b)));
+                id++;
+            });
         });
     };
-
     useEffect(() => {
-        fetchData();
+        updateStore();
     }, []);
 
     return (
@@ -26,9 +39,9 @@ const BusTable: React.FC = (props) => {
             <div className="table__main">
                 <div className="table__container">
                     <div className="table__table">
-                        {busses && (
+                        {b && (
                             <DataGrid
-                                rows={busses}
+                                rows={b}
                                 columns={columns}
                                 pageSize={10}
                                 rowsPerPageOptions={[10]}
