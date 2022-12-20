@@ -3,7 +3,13 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Button, FormLabel, Radio, RadioGroup } from "@mui/material";
+import {
+    Button,
+    FormHelperText,
+    FormLabel,
+    Radio,
+    RadioGroup,
+} from "@mui/material";
 
 import "../../assets/Form.css";
 
@@ -34,11 +40,8 @@ const validationSchema = yup.object({
 
 const FormGrid: React.FC = (props) => {
     const dispatch = useDispatch();
-    const [formValues, setFormValues] = useState<User>({});
-    const [missingValues, setMissingValues] = useState(false);
 
     const onReset = () => {
-        setFormValues({});
         dispatch(resetStore());
     };
     // const WithMaterialUI = () => {
@@ -52,8 +55,9 @@ const FormGrid: React.FC = (props) => {
         },
 
         validationSchema: validationSchema,
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
             dispatch(addUser(values));
+            resetForm();
         },
     });
 
@@ -107,6 +111,7 @@ const FormGrid: React.FC = (props) => {
                                 name="age"
                                 label={formLabels.age}
                                 fullWidth
+                                type="number"
                                 onChange={formik.handleChange}
                                 error={
                                     formik.touched.age &&
@@ -116,6 +121,11 @@ const FormGrid: React.FC = (props) => {
                                     formik.touched.age && formik.errors.age
                                 }
                             />
+                            {formik.touched.gender && formik.errors.gender && (
+                                <FormHelperText>
+                                    {formik.errors.gender}
+                                </FormHelperText>
+                            )}
                         </Grid>
                         <Grid item xs={6}>
                             <FormLabel component="legend">
@@ -140,9 +150,13 @@ const FormGrid: React.FC = (props) => {
                                     title="Male"
                                 />
                             </RadioGroup>
+                            {formik.touched.gender && formik.errors.gender && (
+                                <FormHelperText>
+                                    {formik.errors.gender}
+                                </FormHelperText>
+                            )}
                         </Grid>
-                        {formik.touched.gender && Boolean(formik.errors.gender)}
-                        {formik.touched.gender && formik.errors.gender}
+
                         <Grid item xs={6}>
                             <FormControlLabel
                                 control={
@@ -159,11 +173,6 @@ const FormGrid: React.FC = (props) => {
                         </Grid>
 
                         <Grid item xs={12}>
-                            {missingValues ? (
-                                <h1>{formLabels.missingValues}</h1>
-                            ) : (
-                                <></>
-                            )}
                             <Button
                                 color="secondary"
                                 variant="contained"
