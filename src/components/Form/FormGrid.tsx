@@ -18,7 +18,7 @@ import { useDispatch } from "react-redux";
 import Header from "../Header";
 import { addUser, User, resetStore } from "../../reducers/userReducer";
 
-import { useFormik } from "formik";
+import { Field, useFormik } from "formik";
 import * as yup from "yup";
 
 const styles = {
@@ -35,7 +35,7 @@ const validationSchema = yup.object({
     lastName: yup.string().required("Tast inn etternavn "),
     age: yup.string().required("Sett in alder "),
     gender: yup.string().required("velg kjønn"),
-    termsOfService: yup.string().required("Huk av "),
+    termsOfService: yup.string().required("Huk av for samtykkelse"),
 });
 
 const FormGrid: React.FC = (props) => {
