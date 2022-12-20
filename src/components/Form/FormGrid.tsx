@@ -70,7 +70,6 @@ const FormGrid: React.FC = (props) => {
                     <Grid container spacing={3} sx={styles.grid}>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                required
                                 id="firstName"
                                 name="firstName"
                                 label={formLabels.firstName}
@@ -88,7 +87,6 @@ const FormGrid: React.FC = (props) => {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                required
                                 id="lastName"
                                 name="lastName"
                                 label={formLabels.lastName}
@@ -106,7 +104,6 @@ const FormGrid: React.FC = (props) => {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                required
                                 id="age"
                                 name="age"
                                 label={formLabels.age}
