@@ -121,11 +121,6 @@ const FormGrid: React.FC = (props) => {
                                     formik.touched.age && formik.errors.age
                                 }
                             />
-                            {formik.touched.gender && formik.errors.gender && (
-                                <FormHelperText>
-                                    {formik.errors.gender}
-                                </FormHelperText>
-                            )}
                         </Grid>
                         <Grid item xs={6}>
                             <FormLabel component="legend">
