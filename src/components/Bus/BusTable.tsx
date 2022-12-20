@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { getBusses } from "../services/api";
-import { filterBus } from "../utils/utils";
-import "../assets/Table.css";
-import { columns } from "../types/constants";
+import { getBusses } from "../../services/api";
+import { filterBus } from "../../utils/utils";
+import "../../assets/Table.css";
+import { columns } from "../../types/constants";
 
 import { DataGrid } from "@mui/x-data-grid";
-import Header from "./Header";
+import Header from "../Header";
 
 import { useSelector, TypedUseSelectorHook } from "react-redux";
-import { addBus, selectBus } from "../reducers/busReducer";
+import { addBus, selectBus } from "../../reducers/busReducer";
 
-import { RootState } from "../store/store";
+import { RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
 
 const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;

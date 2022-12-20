@@ -1,5 +1,3 @@
-import { gql } from "apollo-boost";
-
 export const ARRIVAL = `
 {
   stopPlace(id: "NSR:StopPlace:4000") {

@@ -1,8 +1,9 @@
 import React from "react";
-import "../assets/Form.css";
+import "../../assets/Form.css";
 import { Card } from "@mui/material";
-import DisplayStore from "./DisplayStore";
+import DisplayStore from "../DisplayStore";
 import FormGrid from "./FormGrid";
+// import FormGrid from "./Formgrid";
 
 const styles = {
     card: {

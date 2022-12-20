@@ -3,21 +3,17 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import {
-    Button,
-    FormControl,
-    FormLabel,
-    Radio,
-    RadioGroup,
-} from "@mui/material";
+import { Button, FormLabel, Radio, RadioGroup } from "@mui/material";
 
-import "../assets/Form.css";
+import "../../assets/Form.css";
 
-import { addUser, User, resetStore } from "../reducers/userReducer";
-import { buttonLabels, formLabels, inputType } from "../types/types";
-import { isValidForm } from "../utils/utils";
+import { buttonLabels, formLabels } from "../../types/types";
 import { useDispatch } from "react-redux";
-import Header from "./Header";
+import Header from "../Header";
+import { addUser, User, resetStore } from "../../reducers/userReducer";
+
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 const styles = {
     grid: {
@@ -28,68 +24,45 @@ const styles = {
     button: { mt: 3, ml: 1 },
 };
 
+const validationSchema = yup.object({
+    firstName: yup.string().required("Tast inn fornavn "),
+    lastName: yup.string().required("Tast inn etternavn "),
+    age: yup.string().required("Sett in alder "),
+    gender: yup.string().required("velg kjønn"),
+    termsOfService: yup.string().required("Huk av "),
+});
+
 const FormGrid: React.FC = (props) => {
     const dispatch = useDispatch();
     const [formValues, setFormValues] = useState<User>({});
     const [missingValues, setMissingValues] = useState(false);
 
-    const handleInput = (e: any, type: string) => {
-        switch (type) {
-            case inputType.FIRST_NAME:
-                setFormValues({
-                    ...formValues,
-                    firstName: e.target.value,
-                });
-                return;
-            case inputType.LAST_NAME:
-                setFormValues({
-                    ...formValues,
-                    lastName: e.target.value,
-                });
-                return;
-            case inputType.AGE:
-                setFormValues({
-                    ...formValues,
-                    age: e.target.value,
-                });
-                return;
-            case inputType.TERMS_OF_SERVICE:
-                setFormValues({
-                    ...formValues,
-                    termsOfService: e.target.value,
-                });
-                return;
-
-            case inputType.GENDER:
-                setFormValues({
-                    ...formValues,
-                    gender: e.target.value,
-                });
-                return;
-            default:
-                return;
-        }
-    };
-    const onSubmit = (e: any) => {
-        if (isValidForm(formValues)) {
-            setMissingValues(false);
-            dispatch(addUser(formValues));
-        } else {
-            setMissingValues(true);
-        }
-    };
-
     const onReset = () => {
         setFormValues({});
         dispatch(resetStore());
     };
+    // const WithMaterialUI = () => {
+    const formik = useFormik<User>({
+        initialValues: {
+            firstName: "",
+            lastName: "",
+            age: 0,
+            gender: "",
+            termsOfService: false,
+        },
+
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            dispatch(addUser(values));
+        },
+    });
 
     return (
         <>
             <Header title="Registrèr" />
 
             <div className="form__style">
-                <FormControl>
+                <form onSubmit={formik.handleSubmit}>
                     <Grid container spacing={3} sx={styles.grid}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -98,9 +71,14 @@ const FormGrid: React.FC = (props) => {
                                 name="firstName"
                                 label={formLabels.firstName}
                                 fullWidth
-                                variant="standard"
-                                onChange={(e) =>
-                                    handleInput(e, inputType.FIRST_NAME)
+                                onChange={formik.handleChange}
+                                error={
+                                    formik.touched.firstName &&
+                                    Boolean(formik.errors.firstName)
+                                }
+                                helperText={
+                                    formik.touched.firstName &&
+                                    formik.errors.firstName
                                 }
                             />
                         </Grid>
@@ -111,10 +89,15 @@ const FormGrid: React.FC = (props) => {
                                 name="lastName"
                                 label={formLabels.lastName}
                                 fullWidth
-                                onChange={(e) =>
-                                    handleInput(e, inputType.LAST_NAME)
+                                onChange={formik.handleChange}
+                                error={
+                                    formik.touched.lastName &&
+                                    Boolean(formik.errors.lastName)
                                 }
-                                variant="standard"
+                                helperText={
+                                    formik.touched.lastName &&
+                                    formik.errors.lastName
+                                }
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -124,44 +107,43 @@ const FormGrid: React.FC = (props) => {
                                 name="age"
                                 label={formLabels.age}
                                 fullWidth
-                                onChange={(e) => handleInput(e, inputType.AGE)}
-                                variant="standard"
-                                type="number"
+                                onChange={formik.handleChange}
+                                error={
+                                    formik.touched.age &&
+                                    Boolean(formik.errors.age)
+                                }
+                                helperText={
+                                    formik.touched.age && formik.errors.age
+                                }
                             />
                         </Grid>
                         <Grid item xs={6}>
-                            <FormLabel>{formLabels.gender}</FormLabel>
-                            <RadioGroup row defaultValue="Initial">
+                            <FormLabel component="legend">
+                                {formLabels.gender}
+                            </FormLabel>
+                            <RadioGroup
+                                row
+                                defaultValue="Initial"
+                                id="gender"
+                                {...formik.getFieldProps("gender")}
+                            >
                                 <FormControlLabel
-                                    control={
-                                        <Radio
-                                            required
-                                            value="Female"
-                                            title="Female"
-                                            onClick={(e) =>
-                                                handleInput(e, inputType.GENDER)
-                                            }
-                                        />
-                                    }
+                                    value="Female"
+                                    control={<Radio />}
                                     label={formLabels.female}
+                                    title="Female"
                                 />
                                 <FormControlLabel
-                                    control={
-                                        <Radio
-                                            required
-                                            value="Male"
-                                            title="Male"
-                                            onClick={(e) =>
-                                                handleInput(e, inputType.GENDER)
-                                            }
-                                        />
-                                    }
+                                    value="Male"
+                                    control={<Radio />}
                                     label={formLabels.male}
+                                    title="Male"
                                 />
                             </RadioGroup>
                         </Grid>
+                        {formik.touched.gender && Boolean(formik.errors.gender)}
+                        {formik.touched.gender && formik.errors.gender}
                         <Grid item xs={6}>
-                            {" "}
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -169,12 +151,7 @@ const FormGrid: React.FC = (props) => {
                                         color="secondary"
                                         name="saveAddress"
                                         value={true}
-                                        onClick={(e) =>
-                                            handleInput(
-                                                e,
-                                                inputType.TERMS_OF_SERVICE
-                                            )
-                                        }
+                                        onChange={formik.handleChange}
                                     />
                                 }
                                 label={formLabels.termsOfService}
@@ -196,17 +173,16 @@ const FormGrid: React.FC = (props) => {
                                 {buttonLabels.reset}
                             </Button>
                             <Button
-                                type="submit"
                                 color="primary"
                                 variant="contained"
+                                type="submit"
                                 sx={styles.button}
-                                onClick={(e) => onSubmit(e)}
                             >
-                                {buttonLabels.next}
+                                Submit
                             </Button>
                         </Grid>
                     </Grid>
-                </FormControl>
+                </form>
             </div>
         </>
     );
