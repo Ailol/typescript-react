@@ -15,7 +15,7 @@ const styles = {
         alignItems: "center",
     },
 };
-const Register: React.FC = () => {
+const RegisterPage: React.FC = () => {
     return (
         <>
             <div>
@@ -30,4 +30,4 @@ const Register: React.FC = () => {
     );
 };
 
-export default Register;
+export default RegisterPage;

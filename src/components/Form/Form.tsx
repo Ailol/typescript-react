@@ -10,7 +10,7 @@ import {
 } from "./constants";
 import Header from "../Header";
 import "../../assets/Form.css";
-import { addUser } from "../../reducers/userReducer";
+import { addUser, resetStore } from "../../reducers/userReducer";
 import RadioGroupField from "./Fields/RadioGroupField";
 import CheckboxField from "./Fields/CheckBoxField";
 import TextInputField from "./Fields/TextInputField";
@@ -91,8 +91,11 @@ const Form: React.FC = () => {
                                 sx={classes.button}
                                 type="reset"
                                 variant="contained"
-                                color="primary"
-                                onClick={() => formik.resetForm()}
+                                color="secondary"
+                                onClick={() => {
+                                    formik.resetForm();
+                                    dispatch(resetStore());
+                                }}
                             >
                                 reset
                             </Button>

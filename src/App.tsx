@@ -3,7 +3,7 @@ import "./assets/App.css";
 import "./assets/Form.css";
 import { Button } from "@mui/material";
 import BusTable from "./components/Bus/BusTable";
-import Register from "./components/Form/Register";
+import RegisterPage from "./components/Form/RegisterPage";
 // import Form from "./components/Form/Form";
 
 const App: React.FC = () => {
@@ -14,7 +14,7 @@ const App: React.FC = () => {
             <Button onClick={() => setBusTab(false)}> Registrèr</Button>
             <Button onClick={() => setBusTab(true)}> Bus tavla</Button>
 
-            {!tabBus ? <Register /> : <BusTable />}
+            {!tabBus ? <RegisterPage /> : <BusTable />}
 
             {/* <Form /> */}
         </div>
