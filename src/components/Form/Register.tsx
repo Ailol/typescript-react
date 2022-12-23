@@ -2,8 +2,7 @@ import React from "react";
 import "../../assets/Form.css";
 import { Card } from "@mui/material";
 import DisplayStore from "../DisplayStore";
-import FormGrid from "./FormGrid";
-// import FormGrid from "./Formgrid";
+import Form from "./Form";
 
 const styles = {
     card: {
@@ -16,12 +15,12 @@ const styles = {
         alignItems: "center",
     },
 };
-const RegisterForm: React.FC = () => {
+const Register: React.FC = () => {
     return (
         <>
             <div>
                 <Card sx={styles.card}>
-                    <FormGrid />
+                    <Form />
                 </Card>
             </div>
             <div>
@@ -31,4 +30,4 @@ const RegisterForm: React.FC = () => {
     );
 };
 
-export default RegisterForm;
+export default Register;
