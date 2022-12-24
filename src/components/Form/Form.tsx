@@ -40,7 +40,10 @@ const Form: React.FC = () => {
             console.log(values);
         },
     });
-
+    const handleReset = () => {
+        formik.resetForm();
+        dispatch(resetStore());
+    };
     return (
         <>
             <Header title="Registrèr" />
@@ -92,10 +95,7 @@ const Form: React.FC = () => {
                                 type="reset"
                                 variant="contained"
                                 color="secondary"
-                                onClick={() => {
-                                    formik.resetForm();
-                                    dispatch(resetStore());
-                                }}
+                                onClick={() => handleReset()}
                             >
                                 reset
                             </Button>

@@ -1,6 +1,3 @@
-import { useState, useEffect } from "react";
-import { getBusses } from "../../services/api";
-import { filterBus } from "../../utils/utils";
 import "../../assets/Table.css";
 import { columns } from "../../types/constants";
 
@@ -8,30 +5,19 @@ import { DataGrid } from "@mui/x-data-grid";
 import Header from "../Header";
 
 import { useSelector, TypedUseSelectorHook } from "react-redux";
-import { addBus, selectBus } from "../../reducers/busReducer";
+import { selectBus } from "../../reducers/busReducer";
 
 import { RootState } from "../../store/store";
-import { useDispatch } from "react-redux";
+import { useFetchBuses } from "./hooks";
 
 const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
+const url =
+    "https://developer.entur.org/pages-journeyplanner-journeyplanner-v3";
 const BusTable: React.FC = (props) => {
-    const dispatch = useDispatch();
-    const busList = useSelector(selectBus);
+    useFetchBuses();
 
-    const updateStore = async () => {
-        return await getBusses().then((response) => {
-            const busses = response.data?.stopPlace?.estimatedCalls;
-            let id = 0;
-            busses?.map((b: any) => {
-                dispatch(addBus(filterBus(id, b)));
-                id++;
-            });
-        });
-    };
-    useEffect(() => {
-        updateStore();
-    }, []);
+    const busList = useSelector(selectBus);
 
     return (
         <>
