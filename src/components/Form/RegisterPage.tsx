@@ -4,25 +4,22 @@ import { Card } from "@mui/material";
 import DisplayStore from "../DisplayStore";
 import Form from "./Form";
 
-const styles = {
-    card: {
-        maxWidth: "100%",
-        margin: "20px 20px",
-        padding: "20px 20px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-};
+import Header from "./Components/Header";
+
 const RegisterPage: React.FC = () => {
     return (
         <>
-            <div>
-                <Card sx={styles.card}>
-                    <Form />
-                </Card>
-            </div>
+            {/* <Header title={"Registrer"} /> */}
+
+            <Card
+                sx={{
+                    margin: 5,
+                    padding: 5,
+                    backgroundColor: "lightgrey",
+                }}
+            >
+                <Form />
+            </Card>
             <div>
                 <DisplayStore />
             </div>

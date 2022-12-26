@@ -14,8 +14,20 @@ interface Props {
 }
 
 const classes = {
-    checkbox: {
+    form: {
         marginBottom: 2,
+    },
+    checkbox: {
+        "&.Mui-checked": {
+            color: "#800080",
+        },
+        "&:hover": {
+            boxShadow: 3,
+        },
+
+        "& .MuiFormControlLabel-label": {
+            fontSize: "1rem",
+        },
     },
 };
 
@@ -30,12 +42,13 @@ const CheckboxField: React.FC<Props> = ({ name, label, formik }) => {
                         checked={formik.values[name]}
                         onChange={formik.handleChange}
                         value={formik.values[name]}
+                        sx={classes.checkbox}
                     />
                 }
                 label={label}
             />
             {formik.touched[name] && formik.errors[name] && (
-                <React.Fragment>{formik.errors[name]}</React.Fragment>
+                <>{formik.errors[name]}</>
             )}
         </>
     );

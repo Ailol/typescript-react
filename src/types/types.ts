@@ -1,12 +1,21 @@
-export enum formLabels {
-    termsOfService = "Samtykker du til lagring av data?",
-    firstName = "Tast inn fornavn",
-    lastName = "Tast inn etternavn",
-    age = "Tast inn alder",
+export enum formAddressLabels {
+    termsOfService = "Samtykker du til lagring av data? *",
+
+    city = "Velg by ",
+    address = "Skriv inn din adresse",
+    streetNumber = "Skriv inn din gatenummer",
+    zip = "Postnummer",
+    imageUpload = "Last opp bildet ditt",
+}
+
+export enum formContactLabels {
+    firstName = "Tast inn fornavn *",
+    lastName = "Tast inn etternavn *",
+    age = "Tast inn alder *",
     female = "Kvinne",
     male = "Mann",
-    gender = "Kjønn",
-    missingValues = "Manglende verdier",
+    gender = "Kjønn *",
+    email = "Tast inn email *",
 }
 
 export enum buttonLabels {

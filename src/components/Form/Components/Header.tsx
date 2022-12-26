@@ -1,4 +1,4 @@
-import "../assets/Header.css";
+import "../../../assets/Header.css";
 
 interface IProps {
     title: string;

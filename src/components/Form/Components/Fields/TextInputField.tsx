@@ -32,6 +32,7 @@ const TextInputField: React.FC<Props> = ({
             label={label}
             type={type}
             name={name}
+            fullWidth
             onChange={formik.handleChange}
             value={formik.values[name]}
             variant="outlined"

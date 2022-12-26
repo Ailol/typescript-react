@@ -2,7 +2,7 @@ import "../../assets/Table.css";
 import { columns } from "../../types/constants";
 
 import { DataGrid } from "@mui/x-data-grid";
-import Header from "../Header";
+import Header from "../Form/Components/Header";
 
 import { useSelector, TypedUseSelectorHook } from "react-redux";
 import { selectBus } from "../../reducers/busReducer";

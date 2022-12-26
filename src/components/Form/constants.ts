@@ -16,6 +16,12 @@ export const formInitialValues = {
     age: undefined,
     gender: "",
     termsOfService: false,
+    address: {
+        address: "",
+        streetNumber: undefined,
+        city: "",
+        zip: undefined,
+    },
 };
 
 export const genderRadioOptions = [
