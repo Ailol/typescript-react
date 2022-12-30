@@ -1,7 +1,7 @@
 export enum formAddressLabels {
     termsOfService = "Samtykker du til lagring av data? *",
 
-    city = "Velg by ",
+    country = "Velg land ",
     address = "Skriv inn din adresse",
     streetNumber = "Skriv inn din gatenummer",
     zip = "Postnummer",

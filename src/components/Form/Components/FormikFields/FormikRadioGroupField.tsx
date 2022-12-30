@@ -1,4 +1,4 @@
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 import { ErrorMessage } from "formik";
 import React from "react";
 
@@ -13,7 +13,7 @@ interface Props {
     };
 }
 
-const classes = {
+const styles = {
     radioGroup: {
         width: "auto",
         height: "auto",
@@ -26,17 +26,20 @@ const classes = {
             color: "#800080",
         },
     },
+    validationMessage: { color: "#d32f2f" },
 };
 
 const FormikRadioGroupField: React.FC<Props> = ({ name, options, formik }) => {
     return (
         <>
+            <div>Gender</div>
             <RadioGroup
-                sx={classes.radioGroup}
+                sx={styles.radioGroup}
                 name={name}
                 value={formik.values[name]}
                 onChange={formik.handleChange}
                 style={{ display: "flex" }}
+                row
             >
                 {options.map((option) => (
                     <FormControlLabel
@@ -44,14 +47,16 @@ const FormikRadioGroupField: React.FC<Props> = ({ name, options, formik }) => {
                         value={option.value}
                         control={<Radio />}
                         label={option.label}
-                        sx={classes.form}
+                        sx={styles.form}
                     />
                 ))}
                 {/* <ErrorMessage name={formik.errors[name]} /> */}
             </RadioGroup>
-            {formik.touched[name] && formik.errors[name] && (
-                <>{formik.errors[name]}</>
-            )}
+            <div style={styles.validationMessage}>
+                {formik.touched[name] && formik.errors[name] && (
+                    <>{formik.errors[name]}</>
+                )}
+            </div>
         </>
     );
 };

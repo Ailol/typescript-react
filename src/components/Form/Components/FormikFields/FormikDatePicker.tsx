@@ -40,6 +40,7 @@ const FormikDatePicker: React.FC<Props & FormikProps> = ({
                 label={label}
                 inputFormat="DD/MM/YYYY"
                 value={formik.values.age}
+                toolbarTitle="Velg dato"
                 onChange={(value) => {
                     formik.setFieldValue(
                         name,
@@ -48,6 +49,9 @@ const FormikDatePicker: React.FC<Props & FormikProps> = ({
                 }}
                 renderInput={(params) => (
                     <TextField
+                        sx={{ textColor: "#d32f2f" }}
+                        placeholder="Add Class Time"
+                        // {...params}
                         error={
                             formik.touched["age"] &&
                             Boolean(formik.errors["age"])

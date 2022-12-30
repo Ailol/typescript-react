@@ -6,15 +6,15 @@ import Form from "./Form";
 
 import Header from "./Components/Header";
 
-const RegisterPage: React.FC = () => {
+const Profile: React.FC = () => {
     return (
         <>
             <Card
                 sx={{
-                    margin: 2,
-                    padding: 5,
+                    // margin: 2,
+                    padding: 2,
                     borderRadius: 5,
-                    // backgroundColor: "lightgrey",
+                    backgroundColor: "#E8E8E8",
                 }}
             >
                 <Form />
@@ -24,4 +24,4 @@ const RegisterPage: React.FC = () => {
     );
 };
 
-export default RegisterPage;
+export default Profile;

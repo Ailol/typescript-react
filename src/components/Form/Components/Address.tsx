@@ -59,7 +59,7 @@ const Address: React.FC<Props & FormikProps> = ({
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <CountrySelect label={formAddressLabels.city} />
+                    <CountrySelect label={formAddressLabels.country} />
                 </Grid>
 
                 <Grid item xs={12} sm={6}>

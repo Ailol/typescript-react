@@ -51,8 +51,12 @@ const styles = {
     },
     cardHeader: {
         textAlign: "center",
-        backgroundColor: "#E8E8E8	",
-        marginBottom: 3,
+        backgroundColor: "transparent",
+        borderBottom: "1px solid #000000",
+        width: "80%", // set the width to 80%
+        margin: "0 auto", // center the line
+        marginBottom: "26px",
+        padding: "8px 0",
     },
     imageCard: {
         display: "flex",
