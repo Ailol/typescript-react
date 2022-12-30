@@ -14,7 +14,7 @@ const styles = {
     image: {
         marginBottom: 15,
         // height: 300,
-        // width: 300,
+        // width: "20vw",
         width: "100%",
         height: "auto",
         borderRadius: 300,
@@ -46,9 +46,9 @@ const Form: React.FC<ImageProps & FormikProps> = ({ preview, formik }) => {
                     src={
                         image instanceof Blob && image.size !== 0
                             ? URL.createObjectURL(image)
-                            : "https://placeholder.pics/svg/300"
+                            : "https://robohash.org/mail@ashallendesign.co.uk"
                     }
-                    placeholder="https://placeholder.pics/svg/300"
+                    placeholder="https://robohash.org/mail@ashallendesign.co.uk"
                     alt="preview"
                     style={styles.image}
                 />
@@ -57,11 +57,18 @@ const Form: React.FC<ImageProps & FormikProps> = ({ preview, formik }) => {
                     aria-label="upload picture"
                     component="label"
                     sx={{
-                        height: 50,
+                        height: "auto",
                         width: 50,
-                        position: "absolute",
+                        // position: "relative",
                         bottom: 0,
-                        right: 50,
+                        // right: "-55%",
+                        borderColor: "white",
+                        borderWidth: "1px",
+                        border: "1px",
+                        position: "absolute",
+                        top: "85%",
+                        left: "70%",
+                        transform: "translate(-50%, -50%)",
                     }}
                 >
                     <input
@@ -73,10 +80,17 @@ const Form: React.FC<ImageProps & FormikProps> = ({ preview, formik }) => {
                     />
                     <FontAwesomeIcon
                         icon={faCirclePlus}
+                        border
                         style={{
+                            borderRadius: "50%",
                             height: 45,
                             width: 45,
                             color: "#001e3c",
+                            position: "absolute",
+                            backgroundColor: "white",
+                            // borderRadius: 20,
+
+                            border: 1,
                         }}
                     />
                 </IconButton>
