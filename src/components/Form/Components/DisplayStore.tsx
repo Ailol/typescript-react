@@ -1,12 +1,12 @@
 import { Card } from "@mui/material";
 import React from "react";
 
-import { RootState } from "../../store/store";
+import { RootState } from "../../../store/store";
 
 import "../../assets/Displaystore.css";
 import { useSelector, TypedUseSelectorHook } from "react-redux";
-import { selectUsers } from "../../reducers/userReducer";
-import ProfileCard from "./Components/ProfileCard";
+import { selectUsers } from "../../../reducers/userReducer";
+import ProfileCard from "./ProfileCard";
 
 const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 

@@ -9,7 +9,7 @@ interface Props {
     width?: any;
 }
 
-const CountrySelect: React.FC<Props> = ({ label, width = "100%" }) => {
+const CountrySelect: React.FC<Props> = ({ label, width = "auto" }) => {
     return (
         <Autocomplete
             id="country-select-demo"

@@ -29,7 +29,7 @@ const classes = {
     },
 };
 
-const RadioGroupField: React.FC<Props & FormikProps> = ({
+const FormikDatePicker: React.FC<Props & FormikProps> = ({
     name,
     label,
     formik,
@@ -61,4 +61,4 @@ const RadioGroupField: React.FC<Props & FormikProps> = ({
     );
 };
 
-export default RadioGroupField;
+export default FormikDatePicker;

@@ -2,18 +2,35 @@ import React from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 
-import { Box, Button, Card, CardHeader, Grid, TextField } from "@mui/material";
+import {
+    Box,
+    Button,
+    Card,
+    CardHeader,
+    Grid,
+    Stack,
+    TextField,
+} from "@mui/material";
 import { formInitialValues, registerValidation } from "./constants/constants";
 import "../../assets/Form.css";
 import { addUser, resetStore } from "../../reducers/userReducer";
-import CheckboxField from "./Components/FormikFields/FormiCheckBoxField";
+import CheckboxField from "./Components/FormikFields/FormikCheckBoxField";
 import ContactInfo from "./Components/ContactInfo";
 
 import Address from "./Components/Address";
 import ImageUploader from "./Components/ImageUploader";
-import TextInputField from "./Components/FormikFields/FormikTextInputField";
+import FormikTextInputField from "./Components/FormikFields/FormikTextInputField";
 
 const styles = {
+    container: {
+        flexGrow: 1,
+        backgroundColor: "#E8E8E8	",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        maxWidth: "100%",
+        // padding: 1,
+    },
     form: {
         display: "flex",
     },
@@ -35,7 +52,13 @@ const styles = {
     cardHeader: {
         textAlign: "center",
         backgroundColor: "#E8E8E8	",
-        marginBottom: 5,
+        marginBottom: 3,
+    },
+    imageCard: {
+        display: "flex",
+        justifyContent: "center",
+        marginLeft: 2,
+        // alignItems: "center",
     },
     button: { mt: 3, ml: 1 },
 };
@@ -58,80 +81,76 @@ const Form: React.FC = () => {
 
     return (
         <>
-            {/* <Header title="Registrèr" /> */}
-
-            <Box
-                sx={{
-                    flexGrow: 1,
-                    backgroundColor: "#E8E8E8	",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+            <Box sx={styles.container}>
                 <form onSubmit={formik.handleSubmit}>
-                    <Grid container direction="row">
-                        <Card sx={styles.card}>
-                            <CardHeader
-                                sx={styles.cardHeader}
-                                title="Last opp bilde"
-                            />
-                            <ImageUploader preview={true} formik={formik} />
-                            <Box sx={{ margin: 3, padding: 3 }}>
-                                <TextInputField
+                    <Grid container>
+                        <Grid item xs={12} sm={3} sx={styles.imageCard}>
+                            <Card sx={styles.card}>
+                                <CardHeader
+                                    sx={styles.cardHeader}
+                                    title="Last opp bilde"
+                                />
+
+                                <ImageUploader preview={true} formik={formik} />
+
+                                <FormikTextInputField
                                     name="about"
                                     label="Fortell kort om deg selv"
+                                    row={7}
                                     formik={formik}
                                     multiline={true}
+                                    width={"100%"}
                                 />
-                            </Box>
-                        </Card>
-                        <Box>
-                            <Card sx={styles.card}>
-                                <CardHeader
-                                    sx={styles.cardHeader}
-                                    title="Kontakt info"
-                                />
-                                <ContactInfo formik={formik} width={"35vh"} />
                             </Card>
-                            <Card sx={styles.card}>
-                                <CardHeader
-                                    sx={styles.cardHeader}
-                                    title="Addresse"
-                                />
-
-                                <Address formik={formik} width={"35vh"} />
-                            </Card>
-                        </Box>
-
-                        <Grid container spacing={3} sx={styles.grid}>
-                            <Grid item xs={6}>
-                                <CheckboxField
-                                    name="termsOfService"
-                                    label="terms of service"
-                                    formik={formik}
-                                />
+                        </Grid>
+                        <Grid item xs={12} sm={8}>
+                            <Grid item xs={12} sm={12}>
+                                <Card sx={styles.card}>
+                                    <CardHeader
+                                        sx={styles.cardHeader}
+                                        title="Kontakt info"
+                                    />
+                                    <ContactInfo formik={formik} />
+                                </Card>
                             </Grid>
+                            <Grid item xs={12} sm={12}>
+                                <Card sx={styles.card}>
+                                    <CardHeader
+                                        sx={styles.cardHeader}
+                                        title="Addresse"
+                                    />
 
-                            <Grid item xs={12}>
-                                <Button
-                                    sx={styles.button}
-                                    type="reset"
-                                    variant="contained"
-                                    color="secondary"
-                                    onClick={() => handleReset()}
-                                >
-                                    reset
-                                </Button>
-                                <Button
-                                    sx={styles.button}
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Submit
-                                </Button>
+                                    <Address formik={formik} />
+                                </Card>
                             </Grid>
+                        </Grid>
+
+                        <Grid item xs={12} sm={6}>
+                            <CheckboxField
+                                name="termsOfService"
+                                label="terms of service"
+                                formik={formik}
+                            />
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <Button
+                                sx={styles.button}
+                                type="reset"
+                                variant="contained"
+                                color="secondary"
+                                onClick={() => handleReset()}
+                            >
+                                reset
+                            </Button>
+                            <Button
+                                sx={styles.button}
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                            >
+                                Submit
+                            </Button>
                         </Grid>
                     </Grid>
                 </form>

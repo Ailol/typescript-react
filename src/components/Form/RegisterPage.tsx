@@ -9,16 +9,17 @@ import Header from "./Components/Header";
 const RegisterPage: React.FC = () => {
     return (
         <>
-            {/* <Card
+            <Card
                 sx={{
                     margin: 2,
-                    padding: 2,
-                    backgroundColor: "lightgrey",
+                    padding: 5,
+                    borderRadius: 5,
+                    // backgroundColor: "lightgrey",
                 }}
-            > */}
-            <Form />
-            {/* <DisplayStore /> */}
-            {/* </Card> */}
+            >
+                <Form />
+            </Card>
+            <DisplayStore />
         </>
     );
 };

@@ -11,7 +11,15 @@ const styles = {
         display: "flex",
         flexDirection: "column",
     },
-    image: { height: 300, width: 300, borderRadius: 300, flex: 1 },
+    image: {
+        marginBottom: 15,
+        // height: 300,
+        // width: 300,
+        width: "100%",
+        height: "auto",
+        borderRadius: 300,
+        flex: 1,
+    },
 };
 
 interface ImageProps {
@@ -33,7 +41,7 @@ const Form: React.FC<ImageProps & FormikProps> = ({ preview, formik }) => {
 
     return (
         <>
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", marginBottom: "10px" }}>
                 <img
                     src={
                         image instanceof Blob && image.size !== 0

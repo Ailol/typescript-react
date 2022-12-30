@@ -4,7 +4,8 @@ export const registerValidation = yup.object().shape({
     firstName: yup.string().required("Tast inn fornavn "),
     lastName: yup.string().required("Tast inn etternavn "),
     age: yup.string().required("Sett in alder "),
-    email: yup.string().required("Sett email"),
+    email: yup.string().required().email("Ikke en valid email, må inkludere @"),
+    emailNotfilled: yup.string().required("fyll ut email"),
     gender: yup.string().required("velg kjønn"),
     termsOfService: yup
         .bool()

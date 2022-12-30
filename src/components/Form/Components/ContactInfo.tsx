@@ -20,17 +20,14 @@ const styles = {
     grid: {
         justify: "space-around",
         alignItems: "center",
-        mt: 3,
-        ml: 1,
-        ms: 1,
     },
     button: { mt: 3, ml: 1 },
 };
 
 const ContactInfo: React.FC<Props & FormikProps> = ({
     formik,
-    width = "100%",
-    height = "100%",
+    width = "auto",
+    height = "auto",
 }) => {
     return (
         <>
@@ -39,14 +36,14 @@ const ContactInfo: React.FC<Props & FormikProps> = ({
                 spacing={3}
                 sx={(styles.grid, { width: width, height: height })}
             >
-                <Grid item xs={12} sm={12}>
+                <Grid item xs={12} sm={6}>
                     <FormikTextInputField
                         name="firstName"
                         label={formContactLabels.firstName}
                         formik={formik}
                     />
                 </Grid>
-                <Grid item xs={12} sm={12}>
+                <Grid item xs={12} sm={6}>
                     <FormikTextInputField
                         name="lastName"
                         label={formContactLabels.lastName}
@@ -61,14 +58,14 @@ const ContactInfo: React.FC<Props & FormikProps> = ({
                     />
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item xs={6} sm={6}>
                     <FormikRadioGroupField
                         name="gender"
                         options={genderRadioOptions}
                         formik={formik}
                     />
                 </Grid>
-                <Grid item xs={12} sm={8}>
+                <Grid item xs={12} sm={6}>
                     <FormikDatePicker
                         name="age"
                         label={"Fødselsdato"}
