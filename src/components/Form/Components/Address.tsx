@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Grid } from "@mui/material";
-import TextInputField from "./Fields/TextInputField";
+import TextInputField from "./FormikFields/FormikTextInputField";
 import { formAddressLabels } from "../../../types/types";
 import CountrySelect from "./CountrySelect";
 
@@ -20,8 +20,8 @@ const styles = {
     grid: {
         justify: "space-around",
         alignItems: "center",
-        margin: 5,
-        padding: 5,
+        margin: 3,
+        padding: 3,
     },
     button: { mt: 3, ml: 1 },
 };

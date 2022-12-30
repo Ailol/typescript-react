@@ -21,9 +21,6 @@ const classes = {
         "&.Mui-checked": {
             color: "#800080",
         },
-        "&:hover": {
-            boxShadow: 3,
-        },
 
         "& .MuiFormControlLabel-label": {
             fontSize: "1rem",
@@ -31,7 +28,7 @@ const classes = {
     },
 };
 
-const CheckboxField: React.FC<Props> = ({ name, label, formik }) => {
+const FormikCheckBoxField: React.FC<Props> = ({ name, label, formik }) => {
     return (
         <>
             <FormControlLabel
@@ -54,4 +51,4 @@ const CheckboxField: React.FC<Props> = ({ name, label, formik }) => {
     );
 };
 
-export default CheckboxField;
+export default FormikCheckBoxField;

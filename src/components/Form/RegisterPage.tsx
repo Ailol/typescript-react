@@ -1,7 +1,7 @@
 import React from "react";
 import "../../assets/Form.css";
 import { Card } from "@mui/material";
-import DisplayStore from "../DisplayStore";
+import DisplayStore from "./DisplayStore";
 import Form from "./Form";
 
 import Header from "./Components/Header";
@@ -9,20 +9,16 @@ import Header from "./Components/Header";
 const RegisterPage: React.FC = () => {
     return (
         <>
-            {/* <Header title={"Registrer"} /> */}
-
-            <Card
+            {/* <Card
                 sx={{
-                    margin: 5,
-                    padding: 5,
+                    margin: 2,
+                    padding: 2,
                     backgroundColor: "lightgrey",
                 }}
-            >
-                <Form />
-            </Card>
-            <div>
-                <DisplayStore />
-            </div>
+            > */}
+            <Form />
+            {/* <DisplayStore /> */}
+            {/* </Card> */}
         </>
     );
 };

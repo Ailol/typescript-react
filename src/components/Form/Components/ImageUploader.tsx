@@ -1,36 +1,39 @@
 import React, { useState } from "react";
 
-import { Button } from "@mui/material";
+import { IconButton } from "@mui/material";
+import "../../../assets/Form.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { FormikProps } from "../../../types/Interfaces";
 const styles = {
     form: {
         display: "flex",
         flexDirection: "column",
     },
-    image: { height: 300, width: 300, flex: 1 },
+    image: { height: 300, width: 300, borderRadius: 300, flex: 1 },
 };
 
-interface Props {
+interface ImageProps {
     preview: Boolean;
-    formik?: {
-        handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-        values: any;
-        errors: any;
-        touched: any;
-    };
 }
 
-const Form: React.FC<Props> = ({ preview, formik }) => {
+const Form: React.FC<ImageProps & FormikProps> = ({ preview, formik }) => {
     const [image, setImage] = useState<Blob | MediaSource>(new Blob([]));
+    // setImage(imageUrl);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        formik?.handleChange(e);
-        console.log(image);
+    const handleChange = (e: any) => {
+        const file = e.target.files?.[0];
+        const imageUrl = file ? URL.createObjectURL(file) : "";
+        console.log(imageUrl);
+        formik.setFieldValue("image", imageUrl);
+        // formik.handleChange(e);
         setImage(e.target.files?.[0] ?? new Blob([]));
     };
+
     return (
         <>
-            {preview ? (
+            <div style={{ position: "relative" }}>
                 <img
                     src={
                         image instanceof Blob && image.size !== 0
@@ -41,24 +44,35 @@ const Form: React.FC<Props> = ({ preview, formik }) => {
                     alt="preview"
                     style={styles.image}
                 />
-            ) : (
-                <></>
-            )}
-
-            <Button variant="contained" component="label">
-                Upload
-                <input
-                    id="image"
-                    accept="image/*"
-                    onChange={(e) =>
-                        formik
-                            ? handleChange(e)
-                            : setImage(e.target.files?.[0] ?? new Blob([]))
-                    }
-                    type="file"
-                    hidden
-                />
-            </Button>
+                <IconButton
+                    color="primary"
+                    aria-label="upload picture"
+                    component="label"
+                    sx={{
+                        height: 50,
+                        width: 50,
+                        position: "absolute",
+                        bottom: 0,
+                        right: 50,
+                    }}
+                >
+                    <input
+                        id="image"
+                        accept="image/*"
+                        onChange={(e) => handleChange(e)}
+                        type="file"
+                        hidden
+                    />
+                    <FontAwesomeIcon
+                        icon={faCirclePlus}
+                        style={{
+                            height: 45,
+                            width: 45,
+                            color: "#001e3c",
+                        }}
+                    />
+                </IconButton>
+            </div>
         </>
     );
 };

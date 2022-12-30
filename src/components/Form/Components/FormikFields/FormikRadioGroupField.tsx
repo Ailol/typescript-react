@@ -19,18 +19,16 @@ const classes = {
         height: "auto",
         display: "flex",
         flexWrap: "nowrap",
-        flexDirection: "row",
+        // flexDirection: "row",
     },
     form: {
-        "&:hover": {
-            boxShadow: 3,
-            margin: "5px",
-            padding: "5px",
+        "&.Mui-radio": {
+            color: "#800080",
         },
     },
 };
 
-const RadioGroupField: React.FC<Props> = ({ name, options, formik }) => {
+const FormikRadioGroupField: React.FC<Props> = ({ name, options, formik }) => {
     return (
         <>
             <RadioGroup
@@ -58,4 +56,4 @@ const RadioGroupField: React.FC<Props> = ({ name, options, formik }) => {
     );
 };
 
-export default RadioGroupField;
+export default FormikRadioGroupField;

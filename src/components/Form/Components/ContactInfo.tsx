@@ -1,22 +1,17 @@
 import React from "react";
-
 import { Grid } from "@mui/material";
-import { genderRadioOptions } from "../constants";
-import RadioGroupField from "./Fields/RadioGroupField";
-import TextInputField from "./Fields/TextInputField";
+import { genderRadioOptions } from "../constants/constants";
 import { formContactLabels } from "../../../types/types";
 import { FormikProps } from "../../../types/Interfaces";
-
+// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import FormikTextInputField from "./FormikFields/FormikTextInputField";
+import FormikDatePicker from "./FormikFields/FormikDatePicker";
+import FormikRadioGroupField from "./FormikFields/FormikRadioGroupField";
 interface Props {
     width?: any;
     height?: any;
-    formik: {
-        handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-        values: any;
-        errors: any;
-        touched: any;
-    };
 }
+
 const styles = {
     form: {
         display: "flex",
@@ -25,6 +20,9 @@ const styles = {
     grid: {
         justify: "space-around",
         alignItems: "center",
+        mt: 3,
+        ml: 1,
+        ms: 1,
     },
     button: { mt: 3, ml: 1 },
 };
@@ -41,39 +39,39 @@ const ContactInfo: React.FC<Props & FormikProps> = ({
                 spacing={3}
                 sx={(styles.grid, { width: width, height: height })}
             >
-                <Grid item xs={12} sm={6}>
-                    <TextInputField
+                <Grid item xs={12} sm={12}>
+                    <FormikTextInputField
                         name="firstName"
                         label={formContactLabels.firstName}
                         formik={formik}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextInputField
+                <Grid item xs={12} sm={12}>
+                    <FormikTextInputField
                         name="lastName"
                         label={formContactLabels.lastName}
                         formik={formik}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextInputField
+                <Grid item xs={12} sm={12}>
+                    <FormikTextInputField
                         name="email"
                         label={formContactLabels.email}
                         formik={formik}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextInputField
-                        name="age"
-                        label={formContactLabels.age}
-                        type="number"
+
+                <Grid item xs={4}>
+                    <FormikRadioGroupField
+                        name="gender"
+                        options={genderRadioOptions}
                         formik={formik}
                     />
                 </Grid>
-                <Grid item xs={6}>
-                    <RadioGroupField
-                        name="gender"
-                        options={genderRadioOptions}
+                <Grid item xs={12} sm={8}>
+                    <FormikDatePicker
+                        name="age"
+                        label={"Fødselsdato"}
                         formik={formik}
                     />
                 </Grid>

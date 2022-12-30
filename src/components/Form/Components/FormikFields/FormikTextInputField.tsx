@@ -5,7 +5,7 @@ interface Props {
     name: string;
     label: string;
     type?: string;
-
+    multiline?: boolean;
     formik: {
         handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
         values: any;
@@ -20,11 +20,12 @@ const classes = {
     },
 };
 
-const TextInputField: React.FC<Props> = ({
+const FormikTextInputField: React.FC<Props> = ({
     name,
     label,
     formik,
     type = "string",
+    multiline = false,
 }) => {
     return (
         <TextField
@@ -33,6 +34,7 @@ const TextInputField: React.FC<Props> = ({
             type={type}
             name={name}
             fullWidth
+            multiline={multiline}
             onChange={formik.handleChange}
             value={formik.values[name]}
             variant="outlined"
@@ -42,4 +44,4 @@ const TextInputField: React.FC<Props> = ({
     );
 };
 
-export default TextInputField;
+export default FormikTextInputField;
