@@ -18,8 +18,8 @@ const Profile: React.FC = () => {
                 }}
             >
                 <Form />
+                <DisplayStore />
             </Card>
-            <DisplayStore />
         </>
     );
 };

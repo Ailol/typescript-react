@@ -26,13 +26,29 @@ const styles = {
             color: "#800080",
         },
     },
-    validationMessage: { color: "#d32f2f" },
+    title: {
+        margin: 0,
+        fontFamily: "sans-serif",
+        fontWeight: 550,
+        fontSize: "1rem",
+        lineHeight: 1.5,
+        letterSpacing: "0.00938em",
+    },
+    validationMessage: {
+        color: "#d32f2f",
+        margin: 0,
+        fontFamily: "sans-serif",
+        fontWeight: 400,
+        fontSize: "1rem",
+        lineHeight: 1.5,
+        letterSpacing: "0.00938em",
+    },
 };
 
 const FormikRadioGroupField: React.FC<Props> = ({ name, options, formik }) => {
     return (
         <>
-            <div>Gender</div>
+            <div style={styles.title}>Kjønn</div>
             <RadioGroup
                 sx={styles.radioGroup}
                 name={name}

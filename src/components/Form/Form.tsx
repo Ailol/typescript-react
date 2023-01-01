@@ -18,8 +18,8 @@ import CheckboxField from "./Components/FormikFields/FormikCheckBoxField";
 import ContactInfo from "./Components/ContactInfo";
 
 import Address from "./Components/Address";
-import ImageUploader from "./Components/ImageUploader";
 import FormikTextInputField from "./Components/FormikFields/FormikTextInputField";
+import FormikImageUpload from "./Components/FormikFields/FormikImageUpload";
 
 const styles = {
     container: {
@@ -53,8 +53,8 @@ const styles = {
         textAlign: "center",
         backgroundColor: "transparent",
         borderBottom: "1px solid #000000",
-        width: "80%", // set the width to 80%
-        margin: "0 auto", // center the line
+        width: "80%",
+        margin: "0 auto",
         marginBottom: "26px",
         padding: "8px 0",
     },
@@ -95,7 +95,10 @@ const Form: React.FC = () => {
                                     title="Last opp bilde"
                                 />
 
-                                <ImageUploader preview={true} formik={formik} />
+                                <FormikImageUpload
+                                    preview={true}
+                                    formik={formik}
+                                />
 
                                 <FormikTextInputField
                                     name="about"

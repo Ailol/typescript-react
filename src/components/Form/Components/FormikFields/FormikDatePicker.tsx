@@ -5,7 +5,7 @@ import { ErrorMessage } from "formik";
 import moment from "moment";
 import React from "react";
 
-import { FormikProps } from "../../../../types/Interfaces";
+import { FormikProps } from "../../constants/Interfaces";
 
 interface Props {
     name: string;
@@ -40,7 +40,6 @@ const FormikDatePicker: React.FC<Props & FormikProps> = ({
                 label={label}
                 inputFormat="DD/MM/YYYY"
                 value={formik.values.age}
-                toolbarTitle="Velg dato"
                 onChange={(value) => {
                     formik.setFieldValue(
                         name,
@@ -50,7 +49,6 @@ const FormikDatePicker: React.FC<Props & FormikProps> = ({
                 renderInput={(params) => (
                     <TextField
                         sx={{ textColor: "#d32f2f" }}
-                        placeholder="Add Class Time"
                         // {...params}
                         error={
                             formik.touched["age"] &&

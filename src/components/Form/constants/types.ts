@@ -1,11 +1,11 @@
 export enum formAddressLabels {
     termsOfService = "Samtykker du til lagring av data? *",
-
     country = "Velg land ",
     address = "Skriv inn din adresse",
     streetNumber = "Skriv inn din gatenummer",
     zip = "Postnummer",
     imageUpload = "Last opp bildet ditt",
+    apartment = "Tast inn leilighetsnummer",
 }
 
 export enum formContactLabels {

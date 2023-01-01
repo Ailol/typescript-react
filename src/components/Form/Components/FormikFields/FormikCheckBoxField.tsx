@@ -13,7 +13,7 @@ interface Props {
     };
 }
 
-const classes = {
+const styles = {
     form: {
         marginBottom: 2,
     },
@@ -26,27 +26,38 @@ const classes = {
             fontSize: "1rem",
         },
     },
+    validationMessage: {
+        color: "#d32f2f",
+        margin: 0,
+        fontFamily: "sans-serif",
+        fontWeight: 400,
+        fontSize: "1rem",
+        lineHeight: 1.5,
+        letterSpacing: "0.00938em",
+    },
 };
 
 const FormikCheckBoxField: React.FC<Props> = ({ name, label, formik }) => {
     return (
         <>
             <FormControlLabel
-                sx={classes.checkbox}
+                sx={styles.checkbox}
                 control={
                     <Checkbox
                         name={name}
                         checked={formik.values[name]}
                         onChange={formik.handleChange}
                         value={formik.values[name]}
-                        sx={classes.checkbox}
+                        sx={styles.checkbox}
                     />
                 }
                 label={label}
             />
-            {formik.touched[name] && formik.errors[name] && (
-                <>{formik.errors[name]}</>
-            )}
+            <div style={styles.validationMessage}>
+                {formik.touched[name] && formik.errors[name] && (
+                    <>{formik.errors[name]}</>
+                )}
+            </div>
         </>
     );
 };

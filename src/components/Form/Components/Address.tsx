@@ -1,10 +1,10 @@
 import React from "react";
 
 import { Grid } from "@mui/material";
-import { formAddressLabels } from "../../../types/types";
+import { formAddressLabels } from "../constants/types";
 import CountrySelect from "./CountrySelect";
 
-import { FormikProps } from "../../../types/Interfaces";
+import { FormikProps } from "../constants/Interfaces";
 import FormikTextInputField from "./FormikFields/FormikTextInputField";
 
 interface Props {
@@ -44,8 +44,8 @@ const Address: React.FC<Props & FormikProps> = ({
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <FormikTextInputField
-                        name="zip"
-                        label="Leilighets nummer"
+                        name="Apartment"
+                        label={formAddressLabels.apartment}
                         type="text"
                         formik={formik}
                     />

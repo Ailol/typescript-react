@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import React from "react";
 
 import { RootState } from "../../../store/store";
@@ -15,21 +15,33 @@ const styles = {
         minHeight: "100%",
         margin: "5px 5px",
     },
+
+    container: {
+        /* width: 350px; */
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        /* margin: 10px 10px; */
+    },
 };
 const DisplayStore: React.FC = () => {
     const users = useTypedSelector(selectUsers);
     return (
-        <div className="display__store">
-            {users.map((item: any) => (
-                <ProfileCard
-                    name={item.firstName + " " + item.lastName}
-                    email={item.email}
-                    birthdate={item.age}
-                    about={item?.about}
-                    avatarUrl={item?.image}
-                />
-            ))}
-        </div>
+        <Box sx={styles.container}>
+            <div className="display__store">
+                {users.map((item: any) => (
+                    <ProfileCard
+                        name={item.firstName + " " + item.lastName}
+                        email={item.email}
+                        birthdate={item.age}
+                        about={item?.about}
+                        avatarUrl={item?.image}
+                    />
+                ))}
+            </div>
+        </Box>
     );
 };
 export default DisplayStore;
