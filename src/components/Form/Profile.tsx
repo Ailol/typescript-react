@@ -4,7 +4,7 @@ import { Card } from "@mui/material";
 import DisplayStore from "./DisplayStore";
 import Form from "./Form";
 
-import Header from "./Components/Header";
+import Header from "../Bus/Header";
 
 const Profile: React.FC = () => {
     return (

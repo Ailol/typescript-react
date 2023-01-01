@@ -2,18 +2,30 @@ import "../../assets/Table.css";
 import { columns } from "../../types/constants";
 
 import { DataGrid } from "@mui/x-data-grid";
-import Header from "../Form/Components/Header";
+import Header from "./Header";
 
 import { useSelector, TypedUseSelectorHook } from "react-redux";
 import { selectBus } from "../../reducers/busReducer";
 
 import { RootState } from "../../store/store";
 import { useFetchBuses } from "./hooks";
+import { Box } from "@mui/material";
 
 const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-const url =
-    "https://developer.entur.org/pages-journeyplanner-journeyplanner-v3";
+const styles = {
+    tableMain: {
+        padding: 5,
+    },
+    tableContainer: {
+        backgroundColor: "#fff",
+        borderRadius: 10,
+    },
+    tableTable: {
+        height: 631,
+    },
+};
+
 const BusTable: React.FC = (props) => {
     useFetchBuses();
 
@@ -21,10 +33,10 @@ const BusTable: React.FC = (props) => {
 
     return (
         <>
-            <Header title="Bus tavla" />
-            <div className="table__main">
-                <div className="table__container">
-                    <div className="table__table">
+            <Box sx={styles.tableMain}>
+                <Header title="Bus tavla" />
+                <Box sx={styles.tableContainer}>
+                    <Box sx={styles.tableTable}>
                         {busList && (
                             <DataGrid
                                 rows={busList}
@@ -35,9 +47,9 @@ const BusTable: React.FC = (props) => {
                                 disableSelectionOnClick
                             />
                         )}
-                    </div>
-                </div>
-            </div>
+                    </Box>
+                </Box>
+            </Box>
         </>
     );
 };

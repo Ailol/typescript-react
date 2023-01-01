@@ -130,19 +130,17 @@ const Form: React.FC = () => {
                             </Grid>
                         </Grid>
 
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <CheckboxField
                                 name="termsOfService"
                                 label="terms of service"
                                 formik={formik}
                             />
-                        </Grid>
 
-                        <Grid item xs={12}>
                             <Stack alignContent="center" direction="row" mt={5}>
                                 <Button
                                     variant="contained"
-                                    color="primary"
+                                    color="secondary"
                                     onClick={handleReset}
                                     sx={styles.button}
                                 >

@@ -28,7 +28,8 @@ const s = (theme: Theme) => ({
         height: "auto",
         borderRadius: 300,
         flex: 1,
-        objectFit: "cover",
+        objectFit: "contain",
+        // objectFit: "cover",
     },
     iconButton: {
         height: "25%",

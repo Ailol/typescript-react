@@ -4,6 +4,7 @@ import { addBus } from "../../reducers/busReducer";
 import { getBusses } from "../../services/api";
 import { filterBus } from "../../utils/utils";
 
+import { Bus } from "../../reducers/busReducer";
 export const useFetchBuses = () => {
     const dispatch = useDispatch();
 
@@ -11,7 +12,7 @@ export const useFetchBuses = () => {
         const response = await getBusses();
         const busses = response.data?.stopPlace?.estimatedCalls;
         let id = 0;
-        busses?.forEach((b: any) => {
+        busses?.forEach((b: Bus) => {
             dispatch(addBus(filterBus(id, b)));
             id++;
         });
