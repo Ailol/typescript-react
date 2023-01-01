@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material";
 import React from "react";
+import { FormikProps } from "../../constants/Interfaces";
 
 interface Props {
     name: string;
@@ -8,12 +9,6 @@ interface Props {
     multiline?: boolean;
     width?: string;
     row?: number;
-    formik: {
-        handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-        values: any;
-        errors: any;
-        touched: any;
-    };
 }
 
 const classes = {
@@ -22,7 +17,7 @@ const classes = {
     },
 };
 
-const FormikTextInputField: React.FC<Props> = ({
+const FormikTextInputField: React.FC<Props & FormikProps> = ({
     name,
     label,
     formik,

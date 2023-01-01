@@ -17,13 +17,11 @@ const styles = {
     },
 
     container: {
-        /* width: 350px; */
         width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexWrap: "wrap",
-        /* margin: 10px 10px; */
     },
 };
 const DisplayStore: React.FC = () => {

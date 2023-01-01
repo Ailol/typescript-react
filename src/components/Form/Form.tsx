@@ -29,7 +29,6 @@ const styles = {
         justifyContent: "center",
         alignItems: "center",
         maxWidth: "100%",
-        // padding: 1,
     },
     form: {
         display: "flex",
@@ -62,7 +61,6 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         marginLeft: 2,
-        // alignItems: "center",
     },
     button: { mt: 3, ml: 1 },
 };
@@ -105,7 +103,7 @@ const Form: React.FC = () => {
                                     label="Fortell kort om deg selv"
                                     row={7}
                                     formik={formik}
-                                    multiline={true}
+                                    multiline
                                     width={"100%"}
                                 />
                             </Card>
@@ -141,23 +139,24 @@ const Form: React.FC = () => {
                         </Grid>
 
                         <Grid item xs={12}>
-                            <Button
-                                sx={styles.button}
-                                type="reset"
-                                variant="contained"
-                                color="secondary"
-                                onClick={() => handleReset()}
-                            >
-                                reset
-                            </Button>
-                            <Button
-                                sx={styles.button}
-                                type="submit"
-                                variant="contained"
-                                color="primary"
-                            >
-                                Submit
-                            </Button>
+                            <Stack alignContent="center" direction="row" mt={5}>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={handleReset}
+                                    sx={styles.button}
+                                >
+                                    Nullstill
+                                </Button>
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    color="primary"
+                                    sx={styles.button}
+                                >
+                                    Registrer
+                                </Button>
+                            </Stack>
                         </Grid>
                     </Grid>
                 </form>
