@@ -2,14 +2,21 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { countries } from "../constants/countries";
+import { countries } from "../../constants/countries";
+import { FormikProps } from "../../constants/Interfaces";
 
 interface Props {
+    name: string;
     label: string;
     width?: any;
 }
 
-const CountrySelect: React.FC<Props> = ({ label, width = "auto" }) => {
+const FormikCountrySelect: React.FC<Props & FormikProps> = ({
+    name,
+    label,
+    width = "auto",
+    formik,
+}) => {
     return (
         <Autocomplete
             id="country-select-demo"
@@ -17,6 +24,7 @@ const CountrySelect: React.FC<Props> = ({ label, width = "auto" }) => {
             options={countries}
             autoHighlight
             getOptionLabel={(option) => option.label}
+            onChange={(e, value) => formik.setFieldValue(name, value)}
             renderOption={(props, option) => (
                 <Box
                     component="li"
@@ -37,6 +45,8 @@ const CountrySelect: React.FC<Props> = ({ label, width = "auto" }) => {
                 <TextField
                     {...params}
                     label={label}
+                    // value={formik.values.city}
+                    // onChange={formik.handleChange}
                     inputProps={{
                         ...params.inputProps,
                         autoComplete: "new-password", // disable autocomplete and autofill
@@ -47,4 +57,4 @@ const CountrySelect: React.FC<Props> = ({ label, width = "auto" }) => {
     );
 };
 
-export default CountrySelect;
+export default FormikCountrySelect;

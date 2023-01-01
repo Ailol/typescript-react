@@ -62,7 +62,7 @@ const FormikImageUpload: React.FC<ImageProps & FormikProps> = ({
     formik,
 }) => {
     const [image, setImage] = useState<Blob | MediaSource>(new Blob([]));
-    // const theme = useTheme();
+
     const theme = createTheme();
 
     const handleChange = (e: any) => {

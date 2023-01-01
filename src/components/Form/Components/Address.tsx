@@ -2,7 +2,7 @@ import React from "react";
 
 import { Grid } from "@mui/material";
 import { formAddressLabels } from "../constants/types";
-import CountrySelect from "./CountrySelect";
+import FormikCountrySelect from "./FormikFields/FormikCountrySelect";
 
 import { FormikProps } from "../constants/Interfaces";
 import FormikTextInputField from "./FormikFields/FormikTextInputField";
@@ -37,33 +37,37 @@ const Address: React.FC<Props & FormikProps> = ({
             >
                 <Grid item xs={12} sm={12}>
                     <FormikTextInputField
-                        name="address"
+                        name="address.address"
                         label={formAddressLabels.address}
                         formik={formik}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <FormikTextInputField
-                        name="apartment"
+                        name="address.apartment"
                         label={formAddressLabels.apartment}
                         formik={formik}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <FormikTextInputField
-                        name="streetNumber"
+                        name="address.streetNumber"
                         type="number"
                         label={formAddressLabels.streetNumber}
                         formik={formik}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <CountrySelect label={formAddressLabels.country} />
+                    <FormikCountrySelect
+                        name="address.city"
+                        label={formAddressLabels.country}
+                        formik={formik}
+                    />
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
                     <FormikTextInputField
-                        name="zip"
+                        name="address.zip"
                         label={formAddressLabels.zip}
                         type="number"
                         formik={formik}
