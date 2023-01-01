@@ -1,6 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store/store";
 
+export interface Address {
+    address?: string;
+    streetNumber?: number;
+    city?: string;
+    apartment?: string;
+    zip?: number;
+}
+
 export interface User {
     id?: string;
     firstName?: string;
@@ -10,14 +18,8 @@ export interface User {
     termsOfService?: boolean;
     image?: string;
     about?: string;
-    address?: {
-        address?: string;
-        streetNumber?: number;
-        city?: string;
-        zip?: number;
-    };
+    address?: Address;
 }
-
 type usersState = {
     userList: User[];
 };

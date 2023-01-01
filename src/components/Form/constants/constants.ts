@@ -5,7 +5,6 @@ export const registerValidation = yup.object().shape({
     lastName: yup.string().required("Tast inn etternavn "),
     age: yup.string().required("Sett in alder "),
     email: yup.string().required().email("Ikke en valid email"),
-    emailNotfilled: yup.string().required("fyll ut email"),
     gender: yup.string().required("velg kjønn"),
     termsOfService: yup
         .bool()
@@ -18,13 +17,15 @@ export const formInitialValues = {
     age: undefined,
     gender: "",
     termsOfService: false,
+    about: "",
+    image: "",
     address: {
         address: "",
         streetNumber: undefined,
         city: "",
         zip: undefined,
+        apartment: "",
     },
-    image: "",
 };
 
 export const genderRadioOptions = [

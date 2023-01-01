@@ -18,18 +18,31 @@ const styles = {
 };
 const DisplayStore: React.FC = () => {
     const users = useTypedSelector(selectUsers);
+    console.log(users);
     return (
-        <div className="display__store">
-            {users.map((item: any) => (
-                <ProfileCard
-                    name={item.firstName + " " + item.lastName}
-                    email={item.email}
-                    birthdate={item.age}
-                    about={item?.about}
-                    avatarUrl={item?.image}
-                />
-            ))}
-        </div>
+        <>
+            <Card
+                sx={{
+                    // margin: 2,
+                    padding: 2,
+                    borderRadius: 5,
+                    backgroundColor: "#E8E8E8",
+                }}
+            >
+                here
+            </Card>
+            <div className="display__store">
+                {users.map((item: any) => (
+                    <ProfileCard
+                        name={item?.firstName + " " + item?.lastName}
+                        email={item?.email}
+                        birthdate={item?.age}
+                        about={item?.about}
+                        avatarUrl={item?.image}
+                    />
+                ))}
+            </div>
+        </>
     );
 };
 export default DisplayStore;

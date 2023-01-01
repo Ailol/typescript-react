@@ -35,6 +35,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     about,
     avatarUrl,
 }) => {
+    console.log(name);
     return (
         <Card sx={styles.root}>
             <CardHeader

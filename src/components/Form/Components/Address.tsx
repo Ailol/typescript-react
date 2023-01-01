@@ -37,22 +37,21 @@ const Address: React.FC<Props & FormikProps> = ({
             >
                 <Grid item xs={12} sm={12}>
                     <FormikTextInputField
-                        name="Address"
+                        name="address"
                         label={formAddressLabels.address}
                         formik={formik}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <FormikTextInputField
-                        name="Apartment"
+                        name="apartment"
                         label={formAddressLabels.apartment}
-                        type="text"
                         formik={formik}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <FormikTextInputField
-                        name="Number"
+                        name="streetNumber"
                         type="number"
                         label={formAddressLabels.streetNumber}
                         formik={formik}
