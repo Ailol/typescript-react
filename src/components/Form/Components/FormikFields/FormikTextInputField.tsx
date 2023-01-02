@@ -11,12 +11,6 @@ interface Props {
     row?: number;
 }
 
-const classes = {
-    textField: {
-        // marginBottom: 2,
-    },
-};
-
 const FormikTextInputField: React.FC<Props & FormikProps> = ({
     name,
     label,
@@ -28,7 +22,7 @@ const FormikTextInputField: React.FC<Props & FormikProps> = ({
 }) => {
     return (
         <TextField
-            sx={(classes.textField, { width: width })}
+            sx={{ width: width }}
             label={label}
             type={type}
             name={name}

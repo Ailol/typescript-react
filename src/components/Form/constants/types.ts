@@ -16,6 +16,8 @@ export enum formContactLabels {
     male = "Mann",
     gender = "Kjønn *",
     email = "Tast inn email *",
+    about = "Fortell kort om deg selv",
+    termsOfService = "Aksepterer du våre vilkår?",
 }
 
 export enum buttonLabels {

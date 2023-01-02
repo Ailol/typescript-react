@@ -1,5 +1,4 @@
-import { FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
-import { ErrorMessage } from "formik";
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import React from "react";
 
 interface Props {
@@ -19,7 +18,6 @@ const styles = {
         height: "auto",
         display: "flex",
         flexWrap: "nowrap",
-        // flexDirection: "row",
     },
     form: {
         "&.Mui-radio": {

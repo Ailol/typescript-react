@@ -5,7 +5,7 @@ import { FormikProps } from "../../constants/formikProps";
 
 interface Props {
     name: string;
-    label: string;
+
     options: { label: string; value: string }[];
 }
 
@@ -35,7 +35,7 @@ const styles = {
 
 const FormikCheckBoxField: React.FC<Props & FormikProps> = ({
     name,
-    label,
+
     formik,
     options,
 }) => {
@@ -63,26 +63,6 @@ const FormikCheckBoxField: React.FC<Props & FormikProps> = ({
                 )}
             </div>
         </>
-        // <>
-        //     <FormControlLabel
-        //         sx={styles.checkbox}
-        //         control={
-        //             <Checkbox
-        //                 name={name}
-        //                 checked={formik.values[name]}
-        //                 onChange={formik.handleChange}
-        //                 value={formik.values[name]}
-        //                 sx={styles.checkbox}
-        //             />
-        //         }
-        //         label={label}
-        //     />
-        //     <div style={styles.validationMessage}>
-        //         {formik.touched[name] && formik.errors[name] && (
-        //             <>{formik.errors[name]}</>
-        //         )}
-        //     </div>
-        // </>
     );
 };
 

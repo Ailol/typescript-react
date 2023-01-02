@@ -45,8 +45,6 @@ const FormikCountrySelect: React.FC<Props & FormikProps> = ({
                 <TextField
                     {...params}
                     label={label}
-                    // value={formik.values.city}
-                    // onChange={formik.handleChange}
                     inputProps={{
                         ...params.inputProps,
                         autoComplete: "new-password", // disable autocomplete and autofill

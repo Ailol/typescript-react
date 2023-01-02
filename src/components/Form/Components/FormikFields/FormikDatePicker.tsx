@@ -1,7 +1,6 @@
-import { FormControlLabel, Radio, RadioGroup, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import { ErrorMessage } from "formik";
 import moment from "moment";
 import React from "react";
 
@@ -49,7 +48,6 @@ const FormikDatePicker: React.FC<Props & FormikProps> = ({
                 renderInput={(params) => (
                     <TextField
                         sx={{ textColor: "#d32f2f" }}
-                        // {...params}
                         error={
                             formik.touched["age"] &&
                             Boolean(formik.errors["age"])

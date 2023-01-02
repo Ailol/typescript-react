@@ -2,20 +2,9 @@ import React, { useState } from "react";
 
 import { Box, createTheme, IconButton, Theme } from "@mui/material";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FormikProps } from "../../constants/formikProps";
 import { Image } from "../Image";
-
-const classes = {
-    fontAwesomeIcon: {
-        height: "auto",
-        width: "auto",
-        color: "#001e3c",
-        backgroundColor: "white",
-        borderRadius: "50%",
-    },
-};
+import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
 
 interface ImageProps {
     preview: Boolean;
@@ -29,7 +18,6 @@ const s = (theme: Theme) => ({
         borderRadius: 300,
         flex: 1,
         objectFit: "contain",
-        // objectFit: "cover",
     },
     iconButton: {
         height: "25%",
@@ -47,13 +35,20 @@ const s = (theme: Theme) => ({
             width: "15%",
         },
         [theme.breakpoints.down("md")]: {
-            height: "45%",
-            width: "45%",
+            height: "20%",
+            width: "20%",
         },
         [theme.breakpoints.down("lg")]: {
-            height: "55%",
-            width: "55%",
+            height: "25%",
+            width: "25%",
         },
+    },
+    icon: {
+        height: "auto",
+        width: "auto",
+        color: "#001e3c",
+        backgroundColor: "white",
+        borderRadius: "50%",
     },
 });
 
@@ -87,8 +82,6 @@ const FormikImageUpload: React.FC<ImageProps & FormikProps> = ({
                         : "https://robohash.org/mail@ashallendesign.co.uk"
                 }
                 alt="Description of image"
-                // width={100}
-                // height={100}
                 sx={s(theme).image}
             />
 
@@ -105,12 +98,7 @@ const FormikImageUpload: React.FC<ImageProps & FormikProps> = ({
                     type="file"
                     hidden
                 />
-
-                <FontAwesomeIcon
-                    icon={faCirclePlus}
-                    border
-                    style={classes.fontAwesomeIcon}
-                />
+                <AddCircleSharpIcon sx={s(theme).icon} />
             </IconButton>
         </Box>
     );

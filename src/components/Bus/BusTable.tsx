@@ -1,6 +1,4 @@
-import "../../assets/Table.css";
-import { columns } from "../../types/constants";
-
+import { columns } from "./constants";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "./Header";
 

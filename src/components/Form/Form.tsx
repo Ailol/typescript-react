@@ -2,15 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 
-import {
-    Box,
-    Button,
-    Card,
-    CardHeader,
-    Grid,
-    Stack,
-    TextField,
-} from "@mui/material";
+import { Box, Button, Card, CardHeader, Grid, Stack } from "@mui/material";
 import {
     formInitialValues,
     registerValidation,
@@ -24,6 +16,7 @@ import ContactInfo from "./Components/ContactInfo";
 import Address from "./Components/Address";
 import FormikTextInputField from "./Components/FormikFields/FormikTextInputField";
 import FormikImageUpload from "./Components/FormikFields/FormikImageUpload";
+import { formAddressLabels, formContactLabels } from "./constants/types";
 
 const styles = {
     container: {
@@ -104,7 +97,7 @@ const Form: React.FC = () => {
 
                                 <FormikTextInputField
                                     name="about"
-                                    label="Fortell kort om deg selv"
+                                    label={formContactLabels.about}
                                     row={7}
                                     formik={formik}
                                     multiline
@@ -137,7 +130,6 @@ const Form: React.FC = () => {
                         <Grid item xs={12}>
                             <FormikCheckboxField
                                 name="termsOfService"
-                                label="terms of service"
                                 formik={formik}
                                 options={termsOfServiceOptions}
                             />
