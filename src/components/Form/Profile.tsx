@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/Form.css";
+
 import { Card } from "@mui/material";
 import DisplayStore from "./DisplayStore";
 import Form from "./Form";
@@ -15,9 +15,7 @@ const styles = {
 const Profile: React.FC = () => {
     return (
         <>
-            <Card sx={styles.card}>
-                <Form />
-            </Card>
+            <Form />
             <DisplayStore />
         </>
     );

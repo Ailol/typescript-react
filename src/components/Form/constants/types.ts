@@ -5,7 +5,7 @@ export enum formAddressLabels {
     streetNumber = "Skriv inn din gatenummer",
     zip = "Postnummer",
     imageUpload = "Last opp bildet ditt",
-    apartment = "Tast inn leilighetsnummer",
+    apartment = "Skriv inn leilighetsnummer",
 }
 
 export enum formContactLabels {

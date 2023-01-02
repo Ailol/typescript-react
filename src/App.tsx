@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./assets/App.css";
-import "./assets/Form.css";
 import { Button } from "@mui/material";
 import BusTable from "./components/Bus/BusTable";
 import Profile from "./components/Form/Profile";

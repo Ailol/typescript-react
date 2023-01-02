@@ -79,7 +79,7 @@ const Form: React.FC = () => {
                                 <FormikTextInputField
                                     name="about"
                                     label={formContactLabels.about}
-                                    row={7}
+                                    row={5}
                                     formik={formik}
                                     multiline
                                     width={"100%"}
@@ -130,7 +130,7 @@ const Form: React.FC = () => {
                                     color="primary"
                                     sx={styles.button}
                                 >
-                                    Registrer
+                                    Lagre profil
                                 </Button>
                             </Stack>
                         </Grid>
