@@ -16,21 +16,19 @@ const styles = {
     },
 
     store: {
-        margin: 5,
+        margin: 1,
         width: "100%",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexWrap: "wrap",
+        alignItems: "left",
+        justifyContent: "left",
+        // flexWrap: "wrap",
     },
 };
 
 const DisplayStore: React.FC = () => {
     const users = useTypedSelector(selectUsers);
-    console.log(users);
     return (
         <>
-            <Card sx={styles.card}>here</Card>
             <Box sx={styles.store}>
                 {users.map((item: any) => (
                     <ProfileCard

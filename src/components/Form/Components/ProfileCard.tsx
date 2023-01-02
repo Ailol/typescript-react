@@ -7,10 +7,12 @@ import {
     Typography,
 } from "@mui/material";
 import React from "react";
+import { truncate } from "lodash";
 
 const styles = {
     root: {
         maxWidth: 345,
+        margin: 1,
     },
     avatar: {
         height: "auto",
@@ -59,7 +61,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                         color="textSecondary"
                         component="p"
                     >
-                        Kort om: {about}
+                        Kort om: {truncate(about, { length: 15 })}
                     </Typography>
                 </ListItem>
             </List>

@@ -10,7 +10,7 @@ const App: React.FC = () => {
 
     return (
         <div className="container">
-            <Button onClick={() => setBusTab(false)}> Registrèr</Button>
+            <Button onClick={() => setBusTab(false)}> Profil</Button>
             <Button onClick={() => setBusTab(true)}> Bus tavla</Button>
 
             {!tabBus ? <Profile /> : <BusTable />}
