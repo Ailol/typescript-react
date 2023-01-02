@@ -21,3 +21,4 @@ This project uses the following technologies:
     -   `/reducers`: Redux reducers for `user` and `bus` data, organized with Redux Slice
     -   `/services`: GraphQL client and API utility functions
     -   `/store`: Redux store configuration
+    -   `/utils`: Utility functions
