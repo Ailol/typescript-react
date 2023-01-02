@@ -10,7 +10,7 @@ interface ImageProps {
     preview: Boolean;
 }
 
-const s = (theme: Theme) => ({
+const styles = (theme: Theme) => ({
     image: {
         marginBottom: 15,
         width: "100%",
@@ -60,6 +60,7 @@ const FormikImageUpload: React.FC<ImageProps & FormikProps> = ({
 
     const theme = createTheme();
 
+    // for setting state of preview
     const handleChange = (e: any) => {
         const file = e.target.files?.[0];
         const imageUrl = file ? URL.createObjectURL(file) : "";
@@ -79,17 +80,17 @@ const FormikImageUpload: React.FC<ImageProps & FormikProps> = ({
                 src={
                     image instanceof Blob && image.size !== 0
                         ? URL.createObjectURL(image)
-                        : "https://robohash.org/mail@ashallendesign.co.uk"
+                        : "https://t4.ftcdn.net/jpg/04/84/75/59/360_F_484755984_M62B59ThGEYcXS4MdeTyEKJcf0Satp6H.jpg"
                 }
                 alt="Description of image"
-                sx={s(theme).image}
+                sx={styles(theme).image}
             />
 
             <IconButton
                 color="primary"
                 aria-label="upload picture"
                 component="label"
-                sx={s(theme).iconButton}
+                sx={styles(theme).iconButton}
             >
                 <input
                     id="image"
@@ -98,7 +99,7 @@ const FormikImageUpload: React.FC<ImageProps & FormikProps> = ({
                     type="file"
                     hidden
                 />
-                <AddCircleSharpIcon sx={s(theme).icon} />
+                <AddCircleSharpIcon sx={styles(theme).icon} />
             </IconButton>
         </Box>
     );

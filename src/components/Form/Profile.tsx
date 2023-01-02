@@ -23,9 +23,7 @@ const styles = {
         borderRadius: 5,
         margin: 5,
         width: "95%",
-
         display: "flex",
-
         justifyContent: "center",
     },
     container: {

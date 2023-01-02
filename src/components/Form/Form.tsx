@@ -38,6 +38,7 @@ const styles = {
         blockSize: "fit-content",
         mt: 3,
         ml: 1,
+        border: "1px solid #001e3c",
     },
     cardHeader: {
         textAlign: "center",
@@ -79,7 +80,7 @@ const Form: React.FC = () => {
                                 <FormikTextInputField
                                     name="about"
                                     label={formContactLabels.about}
-                                    row={5}
+                                    row={4}
                                     formik={formik}
                                     multiline
                                     width={"100%"}
