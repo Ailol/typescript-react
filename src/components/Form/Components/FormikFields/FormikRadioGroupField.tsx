@@ -66,7 +66,6 @@ const FormikRadioGroupField: React.FC<Props> = ({ name, options, formik }) => {
                         sx={styles.form}
                     />
                 ))}
-                {/* <ErrorMessage name={formik.errors[name]} /> */}
             </RadioGroup>
             <div style={styles.validationMessage}>
                 {formik.touched[name] && formik.errors[name] && (

@@ -1,29 +1,23 @@
-## Simpel form og Api
+# Project Description
 
-Could of added bus reducers and store, however due to timeconstraints optet to only use a state.
+This project uses the following technologies:
 
-Tech:
+-   Redux and Redux Slice for state management, with separate reducers for `user` and `bus` data
+-   GraphQL for fetching data from the Entur API
+-   Formik and Yup for form handling and validation
+-   Material-UI as a component library
+-   TypeScript for type checking
 
--   Material UI
--   Graphql(koblet med enturs sitt API)
--   Redux
+## Getting Started
 
-## Available Scripts
+1. Clone the repository
+2. Install dependencies with `npm install` or `yarn install`
+3. Start the development server with `npm start` or `yarn start`
 
-In the project directory, you can run:
+## File Structure
 
-### `npm install`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-   `/src`: The source code for the project
+    -   `/components`: Reusable UI components
+    -   `/reducers`: Redux reducers for `user` and `bus` data, organized with Redux Slice
+    -   `/services`: GraphQL client and API utility functions
+    -   `/store`: Redux store configuration

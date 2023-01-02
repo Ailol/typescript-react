@@ -4,7 +4,7 @@ import { Box, createTheme, IconButton, Theme } from "@mui/material";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import { FormikProps } from "../../constants/Interfaces";
+import { FormikProps } from "../../constants/formikProps";
 import { Image } from "../Image";
 
 const classes = {

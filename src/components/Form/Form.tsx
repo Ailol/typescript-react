@@ -11,10 +11,14 @@ import {
     Stack,
     TextField,
 } from "@mui/material";
-import { formInitialValues, registerValidation } from "./constants/constants";
-import "../../assets/Form.css";
+import {
+    formInitialValues,
+    registerValidation,
+    termsOfServiceOptions,
+} from "./constants/constants";
+
 import { addUser, resetStore } from "../../reducers/userReducer";
-import CheckboxField from "./Components/FormikFields/FormikCheckBoxField";
+import FormikCheckboxField from "./Components/FormikFields/FormikCheckBoxField";
 import ContactInfo from "./Components/ContactInfo";
 
 import Address from "./Components/Address";
@@ -24,7 +28,7 @@ import FormikImageUpload from "./Components/FormikFields/FormikImageUpload";
 const styles = {
     container: {
         flexGrow: 1,
-        backgroundColor: "#E8E8E8	",
+        backgroundColor: "#E8E8E8",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -131,10 +135,11 @@ const Form: React.FC = () => {
                         </Grid>
 
                         <Grid item xs={12}>
-                            <CheckboxField
+                            <FormikCheckboxField
                                 name="termsOfService"
                                 label="terms of service"
                                 formik={formik}
+                                options={termsOfServiceOptions}
                             />
 
                             <Stack alignContent="center" direction="row" mt={5}>

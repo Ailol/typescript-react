@@ -4,7 +4,7 @@ import { Grid } from "@mui/material";
 import { formAddressLabels } from "../constants/types";
 import FormikCountrySelect from "./FormikFields/FormikCountrySelect";
 
-import { FormikProps } from "../constants/Interfaces";
+import { FormikProps } from "../constants/formikProps";
 import FormikTextInputField from "./FormikFields/FormikTextInputField";
 
 interface Props {

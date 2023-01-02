@@ -28,17 +28,15 @@ const DisplayStore: React.FC = () => {
     const users = useTypedSelector(selectUsers);
     return (
         <Box sx={styles.container}>
-            <div className="display__store">
-                {users.map((item: any) => (
-                    <ProfileCard
-                        name={item.firstName + " " + item.lastName}
-                        email={item.email}
-                        birthdate={item.age}
-                        about={item?.about}
-                        avatarUrl={item?.image}
-                    />
-                ))}
-            </div>
+            {users.map((item: any) => (
+                <ProfileCard
+                    name={item.firstName + " " + item.lastName}
+                    email={item.email}
+                    birthdate={item.age}
+                    about={item?.about}
+                    avatarUrl={item?.image}
+                />
+            ))}
         </Box>
     );
 };

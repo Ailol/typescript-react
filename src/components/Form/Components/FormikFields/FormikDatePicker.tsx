@@ -5,7 +5,7 @@ import { ErrorMessage } from "formik";
 import moment from "moment";
 import React from "react";
 
-import { FormikProps } from "../../constants/Interfaces";
+import { FormikProps } from "../../constants/formikProps";
 
 interface Props {
     name: string;

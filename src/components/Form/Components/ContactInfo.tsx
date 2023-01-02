@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@mui/material";
 import { genderRadioOptions } from "../constants/constants";
 import { formContactLabels } from "../constants/types";
-import { FormikProps } from "../constants/Interfaces";
+import { FormikProps } from "../constants/formikProps";
 // import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import FormikTextInputField from "./FormikFields/FormikTextInputField";
 import FormikDatePicker from "./FormikFields/FormikDatePicker";

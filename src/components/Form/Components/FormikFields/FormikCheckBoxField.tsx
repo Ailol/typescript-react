@@ -1,16 +1,12 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
 // import { ErrorMessage, Field } from "formik";
 import React from "react";
+import { FormikProps } from "../../constants/formikProps";
 
 interface Props {
     name: string;
     label: string;
-    formik: {
-        handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-        values: any;
-        errors: any;
-        touched: any;
-    };
+    options: { label: string; value: string }[];
 }
 
 const styles = {
@@ -37,28 +33,56 @@ const styles = {
     },
 };
 
-const FormikCheckBoxField: React.FC<Props> = ({ name, label, formik }) => {
+const FormikCheckBoxField: React.FC<Props & FormikProps> = ({
+    name,
+    label,
+    formik,
+    options,
+}) => {
     return (
         <>
-            <FormControlLabel
-                sx={styles.checkbox}
-                control={
-                    <Checkbox
-                        name={name}
-                        checked={formik.values[name]}
-                        onChange={formik.handleChange}
-                        value={formik.values[name]}
-                        sx={styles.checkbox}
-                    />
-                }
-                label={label}
-            />
+            {options.map((checkbox) => (
+                <FormControlLabel
+                    sx={styles.checkbox}
+                    control={
+                        <Checkbox
+                            name={checkbox.value}
+                            checked={formik.values[checkbox.value]}
+                            onChange={formik.handleChange}
+                            value={formik.values[checkbox.value]}
+                            sx={styles.checkbox}
+                        />
+                    }
+                    label={checkbox.label}
+                    key={checkbox.value}
+                />
+            ))}
             <div style={styles.validationMessage}>
                 {formik.touched[name] && formik.errors[name] && (
                     <>{formik.errors[name]}</>
                 )}
             </div>
         </>
+        // <>
+        //     <FormControlLabel
+        //         sx={styles.checkbox}
+        //         control={
+        //             <Checkbox
+        //                 name={name}
+        //                 checked={formik.values[name]}
+        //                 onChange={formik.handleChange}
+        //                 value={formik.values[name]}
+        //                 sx={styles.checkbox}
+        //             />
+        //         }
+        //         label={label}
+        //     />
+        //     <div style={styles.validationMessage}>
+        //         {formik.touched[name] && formik.errors[name] && (
+        //             <>{formik.errors[name]}</>
+        //         )}
+        //     </div>
+        // </>
     );
 };
 
