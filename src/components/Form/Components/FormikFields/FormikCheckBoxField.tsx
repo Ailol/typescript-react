@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
 // import { ErrorMessage, Field } from "formik";
 import React from "react";
-import { FormikProps } from "../../constants/formikProps";
+import { FormikProps } from "../../validation/formikProps";
 
 interface Props {
     name: string;

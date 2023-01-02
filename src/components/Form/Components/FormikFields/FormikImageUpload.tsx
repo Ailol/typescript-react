@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Box, createTheme, IconButton, Theme } from "@mui/material";
 
-import { FormikProps } from "../../constants/formikProps";
+import { FormikProps } from "../../validation/formikProps";
 import { Image } from "../Image";
 import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
 

@@ -4,7 +4,7 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
 import React from "react";
 
-import { FormikProps } from "../../constants/formikProps";
+import { FormikProps } from "../../validation/formikProps";
 
 interface Props {
     name: string;

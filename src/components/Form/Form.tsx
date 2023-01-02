@@ -1,22 +1,16 @@
 import React from "react";
-import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
 
 import { Box, Button, Card, CardHeader, Grid, Stack } from "@mui/material";
-import {
-    formInitialValues,
-    registerValidation,
-    termsOfServiceOptions,
-} from "./constants/constants";
+import { termsOfServiceOptions } from "./constants/constants";
 
-import { addUser, resetStore } from "../../reducers/userReducer";
 import FormikCheckboxField from "./Components/FormikFields/FormikCheckBoxField";
 import ContactInfo from "./Components/ContactInfo";
 
 import Address from "./Components/Address";
 import FormikTextInputField from "./Components/FormikFields/FormikTextInputField";
 import FormikImageUpload from "./Components/FormikFields/FormikImageUpload";
-import { formAddressLabels, formContactLabels } from "./constants/types";
+import { formContactLabels } from "./constants/types";
+import { useFormikForm } from "./validation/useFormik";
 
 const styles = {
     container: {
@@ -63,20 +57,7 @@ const styles = {
 };
 
 const Form: React.FC = () => {
-    const dispatch = useDispatch();
-
-    const formik = useFormik({
-        initialValues: formInitialValues,
-        validationSchema: registerValidation,
-        onSubmit: (values) => {
-            dispatch(addUser(values));
-            console.log(values);
-        },
-    });
-    const handleReset = () => {
-        formik.resetForm();
-        dispatch(resetStore());
-    };
+    const { handleReset, ...formik } = useFormikForm();
 
     return (
         <>

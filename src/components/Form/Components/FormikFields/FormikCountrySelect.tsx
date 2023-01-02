@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { countries } from "../../constants/countries";
-import { FormikProps } from "../../constants/formikProps";
+import { FormikProps } from "../../validation/formikProps";
 
 interface Props {
     name: string;
