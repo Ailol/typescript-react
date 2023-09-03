@@ -1,4 +1,5 @@
 # Project Description
+Simple project to test typescript and Graphql with form creation. two different type of apps, one is connected to Enturs GraphQL and other is just a simple form for testing typescript and react
 
 This project uses the following technologies:
 
